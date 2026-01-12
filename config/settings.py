@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     
     'django_extensions',
     'rest_framework',
+    'drf_yasg',
     'apps.company',
     'apps.compliance_status',
     'apps.ruleset',
@@ -139,3 +140,28 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+
+# Django REST Framework defaults
+REST_FRAMEWORK = {
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework.permissions.AllowAny",
+    ],
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework.authentication.BasicAuthentication",
+        # If you add token auth later, include: "rest_framework.authentication.TokenAuthentication",
+    ],
+}
+
+# Allow local origins for CSRF-protected views (e.g., when calling from a frontend)
+CSRF_TRUSTED_ORIGINS = [
+    "http://127.0.0.1:8000",
+    "http://localhost:8000",
+    "http://0.0.0.0:8000",
+    "http://127.0.0.1:3000",
+    "http://localhost:3000",
+    "http://0.0.0.0:3000",
+    "http://127.0.0.1:5000",
+    "http://localhost:5000",
+    "http://0.0.0.0:5000",
+]

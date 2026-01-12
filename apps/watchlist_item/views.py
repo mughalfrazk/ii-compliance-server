@@ -1,3 +1,9 @@
-from django.shortcuts import render
+from rest_framework import viewsets
 
-# Create your views here.
+from .models import WatchlistItem
+from .serializers import WatchlistItemSerializer
+
+
+class WatchlistItemViewSet(viewsets.ModelViewSet):
+    queryset = WatchlistItem.objects.all()
+    serializer_class = WatchlistItemSerializer

@@ -1,3 +1,9 @@
-from django.shortcuts import render
+from rest_framework import viewsets
 
-# Create your views here.
+from .models import ComplianceStatus
+from .serializers import ComplianceStatusSerializer
+
+
+class ComplianceStatusViewSet(viewsets.ModelViewSet):
+    queryset = ComplianceStatus.objects.all()
+    serializer_class = ComplianceStatusSerializer
